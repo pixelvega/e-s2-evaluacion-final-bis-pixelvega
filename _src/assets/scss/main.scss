@@ -1,0 +1,16 @@
+@import 'core/settings';
+
+.ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 160px);
+    grid-template-rows: 195px;
+    grid-gap: 15px;
+}
+.item {
+    border: 2px solid #3effdc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
