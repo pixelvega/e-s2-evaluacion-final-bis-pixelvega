@@ -50,8 +50,8 @@ function showResults (data) {
     for (let i=0; i<data.length;i++){
         const srcImage = data[i].image;
         const pair = data[i].pair;
-        content += `<li class="item">
-        <img src="${placeholder}" alt="" class="card" data-image="${srcImage}" data-pair="${pair}" data-state="false">
+        content += `<li class="card" data-image="${srcImage}" data-pair="${pair}" data-state="false">
+        <img src="${placeholder}" alt="" class="image" >
         </li>`; 
     }
     ul.innerHTML = content;
@@ -70,10 +70,10 @@ function showImage(e) {
     let tImage = card.getAttribute("data-image");
     let tState = card.getAttribute("data-state");
     if (tState === 'false') {
-        card.src = tImage;
+        card.firstElementChild.src = tImage;
         card.setAttribute('data-state', true);
     } else if (tState === 'true') {
-        card.src = placeholder;
+        card.firstElementChild.src = placeholder;
         card.setAttribute('data-state', false);
     }
 }
