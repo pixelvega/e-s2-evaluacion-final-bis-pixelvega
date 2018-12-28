@@ -4,7 +4,7 @@
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, 160px);
-    grid-template-rows: 195px;
+    grid-template-rows: 195px 195px;
     grid-gap: 15px;
 }
 .item {
@@ -13,4 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.card {
+    border-radius: 10px;
 }

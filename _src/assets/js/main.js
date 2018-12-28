@@ -15,12 +15,10 @@ if(localStorage.length>0){
     console.log(inputSelected);
     for (let i=0;i<radios.length;i++){
         if (inputSelected == radios[i].value){
-            //console.log(radios[i]);
             radios[i].checked = true;
             radioValue = inputSelected;
         }
     }
-    //checked input value === inputSelected
 } else {
     radios[0].checked = true;
     radioValue = radios[0].value;
@@ -48,6 +46,36 @@ function getResults() {
 
 function showResults (data) {
     console.log(data);
+    let content = '';
+    for (let i=0; i<data.length;i++){
+        const srcImage = data[i].image;
+        const pair = data[i].pair;
+        content += `<li class="item">
+        <img src="${placeholder}" alt="" class="card" data-image="${srcImage}" data-pair="${pair}" data-state="false">
+        </li>`; 
+    }
+    ul.innerHTML = content;
+    addListenerCards();
+}
+
+function addListenerCards() {
+    const arCards = document.querySelectorAll('.card');
+    for (const card of arCards) {
+        card.addEventListener('click', showImage);
+    }
+}
+
+function showImage(e) {
+    let card = e.currentTarget;
+    let tImage = card.getAttribute("data-image");
+    let tState = card.getAttribute("data-state");
+    if (tState === 'false') {
+        card.src = tImage;
+        card.setAttribute('data-state', true);
+    } else if (tState === 'true') {
+        card.src = placeholder;
+        card.setAttribute('data-state', false);
+    }
 }
 
 btn.addEventListener('click', getResults);
