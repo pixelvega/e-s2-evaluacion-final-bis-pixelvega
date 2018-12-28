@@ -47,6 +47,9 @@ function getResults() {
 function showResults (data) {
     console.log(data);
     let content = '';
+    if (ul.innerHTML != content){
+        ul.innerHTML = content;
+    }
     for (let i=0; i<data.length;i++){
         const srcImage = data[i].image;
         const pair = data[i].pair;
