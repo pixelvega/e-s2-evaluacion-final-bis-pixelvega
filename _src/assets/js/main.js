@@ -104,7 +104,7 @@ function showImage(e) {
                 setTimeout(badChoice,2000);
             }
         }
-    } else if (tState === 'true' && arPairs[0]===tPair){
+    } else if (tState === 'true' && arPairs[0]===tPair && active===false){
         card.firstElementChild.src = placeholder;
         card.setAttribute('data-state', false);
         emptyAr();
