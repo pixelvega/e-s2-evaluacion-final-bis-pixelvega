@@ -56,11 +56,19 @@ function showResults (data) {
         const srcImage = data[i].image;
         const pair = data[i].pair;
         content += `<li class="card" data-image="${srcImage}" data-pair="${pair}" data-state="false">
-        <img src="${placeholder}" alt="" class="image" >
+        <img src="${srcImage}" alt="" class="image" >
         </li>`; 
     }
     ul.innerHTML = content;
-    addListenerCards();
+    setTimeout(addPlaceholder,3000);
+}
+
+function addPlaceholder() {
+    const arImages = document.querySelectorAll('.image');
+    for(const img of arImages){
+        img.src = placeholder;
+    }
+    addListenerCards();    
 }
 
 function addListenerCards() {
