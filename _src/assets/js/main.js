@@ -39,15 +39,31 @@ function getValueRadio(e) {
     localStorage.setItem('num', JSON.stringify(radioValue));
 }
 
+function addClass() {
+    if (radioValue === "6.json"){
+        ul.classList.add('ul-6');
+        ul.classList.remove('ul-8');
+    } else if (radioValue === "8.json"){
+        ul.classList.add('ul-8');
+        ul.classList.remove('ul-6');
+    } else if (radioValue === "4.json"){
+        ul.classList.remove('ul-6');
+        ul.classList.remove('ul-8');        
+    }
+}
+
 function getResults() {
     fetch(urlApi+radioValue)
     .then(data => data.json())
     .then(data => {
-        showResults(data);
+        if (active===false){
+            showResults(data);
+        }
     });
 }
 
 function showResults (data) {
+    active = true;
     let content = '';
     if (ul.innerHTML != content){
         ul.innerHTML = content;
@@ -59,6 +75,7 @@ function showResults (data) {
         <img src="${srcImage}" alt="" class="image" >
         </li>`; 
     }
+    addClass();
     ul.innerHTML = content;
     setTimeout(addPlaceholder,3000);
 }
@@ -68,6 +85,7 @@ function addPlaceholder() {
     for(const img of arImages){
         img.src = placeholder;
     }
+    active = false;
     addListenerCards();    
 }
 
@@ -90,6 +108,8 @@ function showImage(e) {
         arPairs.push(tPair);
         if(arPairs.length>=2){
             if(arPairs[0]===arPairs[1]){
+                arShow[0].classList.add('card-select');
+                arShow[1].classList.add('card-select');
                 emptyAr();
             } else {
                 active=true;

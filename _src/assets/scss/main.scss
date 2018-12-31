@@ -1,10 +1,77 @@
 @import 'core/settings';
+@import url('https://fonts.googleapis.com/css?family=Amaranth:400,400i,700,700i');
 
+body {
+    margin: 0;
+    font-family: 'Amaranth', sans-serif;
+    min-width: 380px;
+}
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+.page__header {
+    padding: 40px 0px;
+}
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input {
+    margin-left: 14px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+/////
+.input:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: 0px;
+    left: -2px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    //border: 2px solid white;
+}
+
+.input:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: 0px;
+    left: -2px;
+    position: relative;
+    background-color: #30d9c4;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    //border: 2px solid white;
+}
+//////
+.btn {
+    margin-left: 14px;
+    padding: 6px 18px;
+    border: 2px solid #30d9c4;
+    border-radius: 10px;
+    font-size: 1em;
+    outline: none;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(48, 217, 196); 
+    }
+}
 .ul {
+    padding: 0px;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(4, 160px);
-    grid-template-rows: 195px 195px;
+    grid-template-columns: repeat(2, 160px);
+    grid-template-rows: repeat(2,195px);
     grid-gap: 15px;
 }
 .card {
@@ -13,7 +80,43 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 5px 5px 10px rgba(136, 136, 136, .8);
+    }
+}
+.card-select {
+    &:hover {
+        box-shadow: none;
+        cursor: default;
+    }
 }
 .image {
     border-radius: 10px;
+}
+.ul-6 {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 160px);
+    grid-template-rows: repeat(2,195px);
+    grid-gap: 15px;
+    @media all and (max-width:540px){
+        grid-template-columns: repeat(2, 160px);
+        grid-template-rows: repeat(4,195px);
+    }
+}
+.ul-8 {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 160px);
+    grid-template-rows: repeat(2,195px);
+    grid-gap: 15px;
+    @media all and (max-width:768px){
+        grid-template-columns: repeat(3, 160px);
+        grid-template-rows: repeat(3,195px);
+    }
+    @media all and (max-width:540px){
+        grid-template-columns: repeat(2, 160px);
+        grid-template-rows: repeat(4,195px);
+    }
 }
