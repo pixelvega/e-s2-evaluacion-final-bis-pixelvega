@@ -64,6 +64,7 @@ function getResults() {
 
 function showResults (data) {
     active = true;
+    btn.classList.add('disabled');
     let content = '';
     if (ul.innerHTML != content){
         ul.innerHTML = content;
@@ -86,6 +87,7 @@ function addPlaceholder() {
         img.src = placeholder;
     }
     active = false;
+    btn.classList.remove('disabled');
     addListenerCards();    
 }
 

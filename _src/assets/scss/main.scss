@@ -66,6 +66,12 @@ body {
         background-color: rgb(48, 217, 196); 
     }
 }
+.disabled {
+    cursor: default;
+    &:hover{
+        background-color: white; 
+    }
+}
 .ul {
     padding: 0px;
     list-style: none;
