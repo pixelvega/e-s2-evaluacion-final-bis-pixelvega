@@ -1,7 +1,4 @@
-# e-s2-evaluacion-final-bis-pixelvega
-
-# Ejercicio de evaluación final ﴾bis﴿ - Sprint 2
-El ejercicio consiste en desarrollar una aplicación web que simula un juego de buscar las parejas. El objetivo del ejercicio es desarrollar la interfaz del juego
+Aplicación web que simula un juego de buscar las parejas de cartas:
 
 La aplicación consta de dos partes
 1. Un formulario para elegir el tamaño de la partida y un botón
